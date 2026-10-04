@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🩺 Plant Problems & Diagnostics | Smart Nursery</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(8deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 7s ease-in-out 3s infinite; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 min-h-screen text-emerald-950 relative overflow-x-hidden">
+
+  <!-- Ambient Floating Background Elements -->
+  <span class="absolute top-12 left-10 text-4xl opacity-30 animate-float pointer-events-none select-none">🍃</span>
+  <span class="absolute top-1/2 right-10 text-5xl opacity-20 animate-float-delayed pointer-events-none select-none">🌿</span>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-emerald-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-emerald-800">
+        <span class="text-2xl">🌱</span> Smart Nursery
+      </a>
+      <div class="flex flex-wrap gap-2 sm:gap-4 font-medium text-sm text-emerald-700">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Home</a>
+        <a href="find-my-plant.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Find My Plant</a>
+        <a href="explore-plants.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Explore Plants</a>
+        <a href="plant-care.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Plant Care Guide</a>
+        <a href="plant-problems.html" class="px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-900 font-semibold shadow-sm">Plant Problems</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="text-center py-10 px-4 relative z-10">
+    <div class="inline-block p-4 bg-emerald-100/80 rounded-full mb-3 shadow-inner">
+      <span class="text-5xl">🩺</span>
+    </div>
+    <h1 class="text-4xl font-bold text-emerald-900 tracking-tight mb-2">
+      Plant Doctor & Diagnostic Tool
+    </h1>
+    <p class="text-emerald-700 text-base max-w-lg mx-auto">
+      Identify issues with yellowing leaves, pests, or drooping stems and fix them naturally.
+    </p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 pb-20 relative z-10 space-y-12">
+
+    <!-- Interactive Symptom Diagnostic Tool -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-emerald-200 shadow-xl">
+      <h2 class="text-xl font-bold text-emerald-900 mb-2 flex items-center gap-2">
+        <span>🔍</span> Instant Plant Symptom Checker
+      </h2>
+      <p class="text-xs text-emerald-700 mb-6">Select what you observe on your plant to diagnose the cause immediately.</p>
+
+      <div class="mb-6">
+        <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Select Symptom</label>
+        <select id="symptom-select" onchange="diagnoseIssue()" class="w-full bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 text-sm font-medium text-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <option value="yellow">Yellowing Leaves (Leaves turning yellow)</option>
+          <option value="brown">Brown Tips & Edges (Crispy or dry leaf ends)</option>
+          <option value="drooping">Wilting / Drooping Stems (Limp plant appearance)</option>
+          <option value="pests">White / Sticky Spots (Insect infestation)</option>
+          <option value="slow">No Growth / Stunted Growth</option>
+        </select>
+      </div>
+
+      <!-- Diagnostic Output Box -->
+      <div id="diagnostic-result" class="p-5 bg-emerald-50/80 rounded-2xl border border-emerald-200 text-emerald-950 text-sm space-y-2">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- Common Problems Cards -->
+    <section>
+      <h2 class="text-2xl font-bold text-emerald-900 text-center mb-8">Common Issues & Solutions</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Issue 1: Overwatering -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md hover:shadow-xl transition-shadow">
+          <div class="text-3xl mb-2">💧</div>
+          <h3 class="font-bold text-emerald-900 text-base mb-1">Overwatering</h3>
+          <p class="text-xs text-emerald-700 mb-3">Mushy yellow leaves and soft stem base.</p>
+          <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100 text-xs text-emerald-900">
+            <strong>Fix:</strong> Stop watering, check pot drainage holes, and allow soil to dry completely.
+          </div>
+        </div>
+
+        <!-- Issue 2: Underwatering -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md hover:shadow-xl transition-shadow">
+          <div class="text-3xl mb-2">🌵</div>
+          <h3 class="font-bold text-emerald-900 text-base mb-1">Underwatering</h3>
+          <p class="text-xs text-emerald-700 mb-3">Dry crispy tips and soil shrinking from pot edges.</p>
+          <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100 text-xs text-emerald-900">
+            <strong>Fix:</strong> Give a thorough deep soak until water drains out from the bottom holes.
+          </div>
+        </div>
+
+        <!-- Issue 3: Mealybugs / Pests -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md hover:shadow-xl transition-shadow">
+          <div class="text-3xl mb-2">🐛</div>
+          <h3 class="font-bold text-emerald-900 text-base mb-1">Pest Infestation</h3>
+          <p class="text-xs text-emerald-700 mb-3">White cotton-like spots or sticky sap on leaves.</p>
+          <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100 text-xs text-emerald-900">
+            <strong>Fix:</strong> Spray dilute Neem oil spray or rub alcohol on affected areas with cotton.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Natural Remedy Recipe Card -->
+    <section class="bg-gradient-to-r from-emerald-800 to-teal-800 text-white rounded-3xl p-6 md:p-8 shadow-xl">
+      <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+        <span>🌿</span> DIY Natural Organic Neem Spray
+      </h2>
+      <p class="text-emerald-100 text-sm mb-4">A simple homemade pesticide safe for indoor pets and plants.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/20">
+        <div>
+          <h4 class="font-bold text-emerald-200 uppercase mb-1">Ingredients:</h4>
+          <p>• 1 Liter Water</p>
+          <p>• 1 Teaspoon Pure Organic Neem Oil</p>
+          <p>• 1/2 Teaspoon Mild Dish Soap</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-emerald-200 uppercase mb-1">How to Apply:</h4>
+          <p>Mix well in a spray bottle. Spray leaves once every week in the early morning or evening.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-emerald-700 border-t border-emerald-100 bg-white/50">
+    <p>© Smart Nursery Information Portal. Built with GitHub Pages.</p>
+  </footer>
+
+  <script>
+    const symptomsData = {
+      yellow: {
+        cause: "Overwatering or Poor Soil Drainage",
+        explanation: "Excess water suffocates roots, preventing oxygen absorption.",
+        remedy: "Allow the top 2 inches of soil to dry before watering again and ensure pot has drainage holes."
+      },
+      brown: {
+        cause: "Low Humidity or Underwatering",
+        explanation: "Dry indoor air or irregular watering schedule dries out leaf margins.",
+        remedy: "Mist leaves regularly, place a water tray nearby, or adjust watering frequency."
+      },
+      drooping: {
+        cause: "Underwatering or Extreme Heat / Root Shock",
+        explanation: "Plant stems lose water pressure faster than roots can absorb it.",
+        remedy: "Give the plant a complete soak and move away from direct scorching afternoon sun."
+      },
+      pests: {
+        cause: "Mealybugs, Spider Mites, or Aphids",
+        explanation: "Insects suck plant sap, weakening leaf vigor and leaving sticky residue.",
+        remedy: "Wipe affected leaves with neem oil solution or insecticidal soap spray once weekly."
+      },
+      slow: {
+        cause: "Lack of Sunlight or Depleted Soil Nutrients",
+        explanation: "Plant lacks sufficient light or nitrogen/phosphorus minerals to grow new stems.",
+        remedy: "Move to a brighter spot and add organic vermicompost or liquid fertilizer."
+      }
+    };
+
+    function diagnoseIssue() {
+      const selected = document.getElementById('symptom-select').value;
+      const data = symptomsData[selected];
+      const output = document.getElementById('diagnostic-result');
+
+      output.innerHTML = `
+        <div><strong class="text-emerald-900">Possible Cause:</strong> ${data.cause}</div>
+        <div><strong class="text-emerald-900">Why it Happens:</strong> ${data.explanation}</div>
+        <div class="p-3 bg-white/80 rounded-xl border border-emerald-200 mt-2">
+          <strong class="text-emerald-800">💡 Suggested Solution:</strong> ${data.remedy}
+        </div>
+      `;
+    }
+
+    // Initial load
+    diagnoseIssue();
+  </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🪴 Plant Care Guide | Smart Nursery</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(8deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 7s ease-in-out 3s infinite; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 min-h-screen text-emerald-950 relative overflow-x-hidden">
+
+  <!-- Ambient Floating Background Elements -->
+  <span class="absolute top-12 left-10 text-4xl opacity-30 animate-float pointer-events-none select-none">🍃</span>
+  <span class="absolute top-1/2 right-10 text-5xl opacity-20 animate-float-delayed pointer-events-none select-none">🌿</span>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-emerald-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-emerald-800">
+        <span class="text-2xl">🌱</span> Smart Nursery
+      </a>
+      <div class="flex flex-wrap gap-2 sm:gap-4 font-medium text-sm text-emerald-700">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Home</a>
+        <a href="find-my-plant.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Find My Plant</a>
+        <a href="explore-plants.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Explore Plants</a>
+        <a href="plant-care.html" class="px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-900 font-semibold shadow-sm">Plant Care Guide</a>
+        <a href="plant-problems.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Plant Problems</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="text-center py-10 px-4 relative z-10">
+    <div class="inline-block p-4 bg-emerald-100/80 rounded-full mb-3 shadow-inner">
+      <span class="text-5xl">🪴</span>
+    </div>
+    <h1 class="text-4xl font-bold text-emerald-900 tracking-tight mb-2">
+      Essential Plant Care Guide
+    </h1>
+    <p class="text-emerald-700 text-base max-w-lg mx-auto">
+      Master watering, sunlight balance, soil nutrition, and seasonal care techniques.
+    </p>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 pb-20 relative z-10 space-y-12">
+
+    <!-- Interactive Water Calculator Tool -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-emerald-200 shadow-xl">
+      <h2 class="text-xl font-bold text-emerald-900 mb-2 flex items-center gap-2">
+        <span>💧</span> Smart Watering Schedule Calculator
+      </h2>
+      <p class="text-xs text-emerald-700 mb-6">Calculate ideal watering frequency based on pot size & sunlight environment.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Pot Size</label>
+          <select id="calc-pot" class="w-full bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 text-sm font-medium text-emerald-900">
+            <option value="small">Small Pot (4 - 6 inches)</option>
+            <option value="medium" selected>Medium Pot (8 - 10 inches)</option>
+            <option value="large">Large Pot (12+ inches)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Sunlight Condition</label>
+          <select id="calc-sun" class="w-full bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3 text-sm font-medium text-emerald-900">
+            <option value="high">Direct High Sunlight</option>
+            <option value="medium" selected>Indirect Moderate Light</option>
+            <option value="low">Low Light / Shade</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="calculateWatering()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl transition-all shadow-md">
+        Calculate Schedule
+      </button>
+
+      <!-- Calculator Result -->
+      <div id="calc-result" class="mt-6 p-4 bg-emerald-100/80 rounded-2xl border border-emerald-200 text-emerald-900 text-sm font-medium hidden">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Core Plant Pillars -->
+    <section>
+      <h2 class="text-2xl font-bold text-emerald-900 text-center mb-8">4 Pillars of Plant Health</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Sunlight -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md text-center hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-3">☀️</div>
+          <h3 class="font-bold text-emerald-900 text-lg mb-2">Sunlight</h3>
+          <p class="text-xs text-emerald-700 leading-relaxed">Rotate plants every fortnight so all sides receive balanced light exposure evenly.</p>
+        </div>
+
+        <!-- Watering -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md text-center hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-3">🌊</div>
+          <h3 class="font-bold text-emerald-900 text-lg mb-2">Watering</h3>
+          <p class="text-xs text-emerald-700 leading-relaxed">Always check top 2 inches of soil with finger test before watering to prevent root rot.</p>
+        </div>
+
+        <!-- Soil & Fertilizer -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md text-center hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-3">🪴</div>
+          <h3 class="font-bold text-emerald-900 text-lg mb-2">Soil Nutrition</h3>
+          <p class="text-xs text-emerald-700 leading-relaxed">Use well-draining potting mix blended with compost or vermicompost every month.</p>
+        </div>
+
+        <!-- Humidity & Air -->
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-100 shadow-md text-center hover:shadow-xl transition-shadow">
+          <div class="text-4xl mb-3">💨</div>
+          <h3 class="font-bold text-emerald-900 text-lg mb-2">Air Flow</h3>
+          <p class="text-xs text-emerald-700 leading-relaxed">Keep plant leaves free of dust using a soft damp cloth to maximize photosynthesis.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Seasonal Care Tabs -->
+    <section class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-emerald-200 shadow-xl">
+      <h2 class="text-xl font-bold text-emerald-900 mb-6">Seasonal Care Tips</h2>
+
+      <div class="flex gap-2 mb-6 border-b border-emerald-100 pb-3">
+        <button onclick="showSeason('summer')" id="tab-summer" class="season-tab bg-emerald-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all">☀️ Summer</button>
+        <button onclick="showSeason('monsoon')" id="tab-monsoon" class="season-tab bg-emerald-50 text-emerald-800 px-4 py-2 rounded-xl text-xs font-bold transition-all">🌧️ Monsoon</button>
+        <button onclick="showSeason('winter')" id="tab-winter" class="season-tab bg-emerald-50 text-emerald-800 px-4 py-2 rounded-xl text-xs font-bold transition-all">❄️ Winter</button>
+      </div>
+
+      <div id="season-content" class="text-sm text-emerald-800 leading-relaxed space-y-3">
+        <!-- Content Injected via JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-emerald-700 border-t border-emerald-100 bg-white/50">
+    <p>© Smart Nursery Information Portal. Built with GitHub Pages.</p>
+  </footer>
+
+  <script>
+    // Watering Calculator Logic
+    function calculateWatering() {
+      const pot = document.getElementById('calc-pot').value;
+      const sun = document.getElementById('calc-sun').value;
+      const res = document.getElementById('calc-result');
+
+      let schedule = "";
+
+      if (sun === 'high') {
+        schedule = pot === 'small' ? "Water every 1 to 2 days." : "Water every 2 to 3 days.";
+      } else if (sun === 'medium') {
+        schedule = pot === 'small' ? "Water every 3 to 5 days." : "Water every 5 to 7 days.";
+      } else {
+        schedule = "Water every 8 to 12 days (allow soil to dry out almost completely).";
+      }
+
+      res.innerHTML = `💧 <strong>Recommended Schedule:</strong> ${schedule} Ensure drainage holes are open.`;
+      res.classList.remove('hidden');
+    }
+
+    // Seasonal Care Content
+    const seasons = {
+      summer: `
+        <p>• <strong>Increase Watering:</strong> Water early in the morning or evening to reduce evaporation.</p>
+        <p>• <strong>Shade Protection:</strong> Move delicate indoor plants away from harsh direct sunlight windows.</p>
+        <p>• <strong>Mist Leaves:</strong> Spray clean water on leaves to maintain humidity during dry hot days.</p>
+      `,
+      monsoon: `
+        <p>• <strong>Check Drainage:</strong> Ensure pots don't collect stagnant rainwater to prevent root rot.</p>
+        <p>• <strong>Reduce Watering:</strong> Rain humidity keeps soil damp for longer durations naturally.</p>
+        <p>• <strong>Pest Check:</strong> Inspect leaves regularly for fungal growth or garden pests.</p>
+      `,
+      winter: `
+        <p>• <strong>Slow Down Watering:</strong> Plants enter dormancy; water only when topsoil turns completely dry.</p>
+        <p>• <strong>Maximize Sunlight:</strong> Move outdoor/indoor plants to warmer sunlit spots.</p>
+        <p>• <strong>Pause Heavy Fertilizers:</strong> Avoid feeding plants frequently during cold dormant months.</p>
+      `
+    };
+
+    function showSeason(seasonKey) {
+      document.getElementById('season-content').innerHTML = seasons[seasonKey];
+      
+      const tabs = document.querySelectorAll('.season-tab');
+      tabs.forEach(tab => {
+        if(tab.id === `tab-${seasonKey}`) {
+          tab.className = 'season-tab bg-emerald-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all';
+        } else {
+          tab.className = 'season-tab bg-emerald-50 text-emerald-800 px-4 py-2 rounded-xl text-xs font-bold transition-all';
+        }
+      });
+    }
+
+    // Initial Load
+    showSeason('summer');
+    calculateWatering();
+  </script>
+</body>
+</html>

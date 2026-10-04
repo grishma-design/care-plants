@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔍 Find My Plant | Smart Nursery</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(8deg); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 7s ease-in-out 3s infinite; }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-100 min-h-screen text-emerald-950 relative overflow-x-hidden">
+
+  <!-- Ambient Floating Leaves -->
+  <span class="absolute top-12 left-10 text-4xl opacity-30 animate-float pointer-events-none select-none">🍃</span>
+  <span class="absolute top-1/2 right-10 text-5xl opacity-20 animate-float-delayed pointer-events-none select-none">🌿</span>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white/80 backdrop-blur-md border-b border-emerald-100 sticky top-0 z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-emerald-800">
+        <span class="text-2xl">🌱</span> Smart Nursery
+      </a>
+      <div class="flex flex-wrap gap-2 sm:gap-4 font-medium text-sm text-emerald-700">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Home</a>
+        <a href="find-my-plant.html" class="px-3 py-1.5 rounded-lg bg-emerald-100 text-emerald-900 font-semibold shadow-sm">Find My Plant</a>
+        <a href="explore-plants.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Explore Plants</a>
+        <a href="plant-care.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Plant Care Guide</a>
+        <a href="plant-problems.html" class="px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-emerald-900 transition-colors">Plant Problems</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="text-center py-10 px-4 relative z-10">
+    <div class="inline-block p-4 bg-emerald-100/80 rounded-full mb-3 shadow-inner">
+      <span class="text-5xl">🔍</span>
+    </div>
+    <h1 class="text-4xl font-bold text-emerald-900 tracking-tight mb-2">
+      Apne Ghar Ke Liye Sahi Paudha Chunein
+    </h1>
+    <p class="text-emerald-700 text-base max-w-lg mx-auto">
+      Select your home conditions below to find the ideal plant match instantly.
+    </p>
+  </header>
+
+  <!-- Interactive Finder Tool -->
+  <main class="max-w-4xl mx-auto px-6 pb-20 relative z-10">
+    
+    <!-- Filter Controls Card -->
+    <div class="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-emerald-200 shadow-xl mb-10">
+      <h2 class="text-xl font-bold text-emerald-900 mb-6 flex items-center gap-2">
+        <span>⚙️</span> Choose Your Preferences
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Location Preference -->
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Placement</label>
+          <select id="pref-location" class="w-full bg-emerald-50/80 border border-emerald-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium text-emerald-900">
+            <option value="any">Any Placement</option>
+            <option value="Indoor">Indoor (Living room/Bedroom)</option>
+            <option value="Outdoor">Outdoor (Balcony/Garden)</option>
+          </select>
+        </div>
+
+        <!-- Sunlight Level -->
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Sunlight Available</label>
+          <select id="pref-sunlight" class="w-full bg-emerald-50/80 border border-emerald-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium text-emerald-900">
+            <option value="any">Any Sunlight</option>
+            <option value="Low">Low / Indirect Light</option>
+            <option value="Full">Direct Bright Sunlight</option>
+          </select>
+        </div>
+
+        <!-- Maintenance Effort -->
+        <div>
+          <label class="block text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2">Care Effort</label>
+          <select id="pref-care" class="w-full bg-emerald-50/80 border border-emerald-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 font-medium text-emerald-900">
+            <option value="any">Any Effort Level</option>
+            <option value="Low-Maintenance">Low (Beginner Friendly)</option>
+            <option value="Medicinal">Medicinal / Special Benefits</option>
+          </select>
+        </div>
+      </div>
+
+      <button onclick="findPlants()" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+        🌿 Find Matching Plants
+      </button>
+    </div>
+
+    <!-- Recommendation Results -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold text-emerald-900">Recommended Matches</h3>
+        <span class="text-xs bg-emerald-100 text-emerald-800 font-semibold px-3 py-1 rounded-full"><span id="match-count">0</span> Plants Found</span>
+      </div>
+
+      <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Matching Plant Cards Injected Here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-xs text-emerald-700 border-t border-emerald-100 bg-white/50">
+    <p>© Smart Nursery Information Portal. Built with GitHub Pages.</p>
+  </footer>
+
+  <script>
+    const database = [
+      {
+        name: "Snake Plant (Sansevieria)",
+        location: "Indoor",
+        sunlight: "Low",
+        care: "Low-Maintenance",
+        desc: "Requires almost zero light and purifies indoor toxicity effectively.",
+        image: "https://images.unsplash.com/photo-1593482892290-f54927ae1bac?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        name: "Monstera Deliciosa",
+        location: "Indoor",
+        sunlight: "Low",
+        care: "Low-Maintenance",
+        desc: "Tropical statement plant ideal for shaded room corners.",
+        image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        name: "Tulsi (Holy Basil)",
+        location: "Outdoor",
+        sunlight: "Full",
+        care: "Medicinal",
+        desc: "Thrives in direct sunlight while offering aromatic ayurvedic benefits.",
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        name: "Aloe Vera",
+        location: "Indoor",
+        sunlight: "Full",
+        care: "Medicinal",
+        desc: "Durable succulent useful for healing gels and skincare routine.",
+        image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        name: "Bougainvillea",
+        location: "Outdoor",
+        sunlight: "Full",
+        care: "Low-Maintenance",
+        desc: "Colorful blooming vine made for hot exterior balconies.",
+        image: "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    function findPlants() {
+      const loc = document.getElementById('pref-location').value;
+      const sun = document.getElementById('pref-sunlight').value;
+      const care = document.getElementById('pref-care').value;
+
+      const filtered = database.filter(item => {
+        const matchesLoc = (loc === 'any' || item.location === loc);
+        const matchesSun = (sun === 'any' || item.sunlight === sun);
+        const matchesCare = (care === 'any' || item.care === care);
+        return matchesLoc && matchesSun && matchesCare;
+      });
+
+      renderResults(filtered);
+    }
+
+    function renderResults(list) {
+      const container = document.getElementById('results-grid');
+      document.getElementById('match-count').innerText = list.length;
+
+      if (list.length === 0) {
+        container.innerHTML = `<div class="col-span-full text-center py-10 bg-white/60 rounded-2xl border border-dashed border-emerald-300 text-gray-500 font-medium">No exact match found for these criteria. Try changing your filters!</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(item => `
+        <div class="bg-white/80 backdrop-blur-md rounded-2xl border border-emerald-100 overflow-hidden shadow-md hover:shadow-lg transition-all flex flex-col sm:flex-row">
+          <img src="${item.image}" alt="${item.name}" class="w-full sm:w-36 h-40 object-cover">
+          <div class="p-4 flex flex-col justify-between">
+            <div>
+              <div class="flex gap-2 mb-2">
+                <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">${item.location}</span>
+                <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full">${item.sunlight} Light</span>
+              </div>
+              <h4 class="font-bold text-emerald-950 text-base">${item.name}</h4>
+              <p class="text-xs text-emerald-700 mt-1">${item.desc}</p>
+            </div>
+            <a href="explore-plants.html" class="text-xs text-emerald-600 font-bold hover:underline mt-3 inline-block">Explore Full Details →</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Initial Load
+    findPlants();
+  </script>
+</body>
+</html>

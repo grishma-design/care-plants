@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Nursery Information Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDE PLANT ANIMATION -->
+    <div class="side-decoration left-decoration">
+        <span class="side-leaf leaf-a">🌿</span>
+        <span class="side-leaf leaf-b">🍃</span>
+        <span class="side-leaf leaf-c">🌱</span>
+        <span class="side-leaf leaf-d">🍀</span>
+        <span class="side-leaf leaf-e">🌿</span>
+        <span class="side-leaf leaf-f">🍃</span>
+    </div>
+
+    <div class="side-decoration right-decoration">
+        <span class="side-leaf leaf-a">🍃</span>
+        <span class="side-leaf leaf-b">🌿</span>
+        <span class="side-leaf leaf-c">🍀</span>
+        <span class="side-leaf leaf-d">🌱</span>
+        <span class="side-leaf leaf-e">🌿</span>
+        <span class="side-leaf leaf-f">🍃</span>
+    </div>
+
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            🌱 Smart Nursery
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#explore">Explore Plants</a>
+            <a href="#spaces">Find Your Plant</a>
+            <a href="#doctor">Plant Doctor</a>
+            <a href="#care">Plant Care</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                🌿 YOUR PERSONAL PLANT GUIDE
+            </span>
+
+            <h1>
+                Grow Better.<br>
+                <span>Choose Better.</span>
+            </h1>
+
+            <p>
+                Find the right plant for your home, garden and lifestyle.
+                Discover what every plant needs and grow with confidence.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#explore" class="primary-btn">
+                    Explore Plants 🌱
+                </a>
+
+                <a href="#spaces" class="secondary-btn">
+                    Find My Plant →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-glow"></div>
+
+            <div class="floating-leaf leaf-one">🍃</div>
+            <div class="floating-leaf leaf-two">🌿</div>
+            <div class="floating-leaf leaf-three">🍀</div>
+
+            <div class="hero-plant">
+                🌿
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                🔎 FIND YOUR PLANT
+            </span>
+
+            <h2>
+                Find the Plant That Fits Your World
+            </h2>
+
+            <p>
+                Search by plant name, Indian name, category or location.
+            </p>
+
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="plantSearch"
+                placeholder="Try Rose, Tulsi, Mogra, Genda, Aloe Vera..."
+                autocomplete="off"
+            >
+
+            <button onclick="searchPlant()">
+                Search 🌱
+            </button>
+
+        </div>
+
+        <div id="searchResult" class="search-results">
+
+            <div class="search-empty">
+
+                <span>🌱</span>
+
+                <h3>
+                    Search for a plant
+                </h3>
+
+                <p>
+                    Try Rose, Tulsi, Mogra, Genda,
+                    Aloe Vera or Money Plant.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GREEN COMPANIONS -->
+    <section class="plants-section" id="explore">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                🌿 GREEN COMPANIONS
+            </span>
+
+            <h2>
+                Plants Waiting to Meet You
+            </h2>
+
+            <p>
+                Explore beautiful plants and discover what makes
+                each one special.
+            </p>
+
+        </div>
+
+        <div class="plant-grid"></div>
+
+    </section>
+
+
+    <!-- SPACE FINDER -->
+    <section class="spaces-section" id="spaces">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                🏡 PLANT MATCH
+            </span>
+
+            <h2>
+                Where Will Your Plant Live?
+            </h2>
+
+            <p>
+                Choose your space and discover plants that fit it.
+            </p>
+
+        </div>
+
+
+        <div class="space-grid">
+
+            <button class="space-card" onclick="chooseSpace('livingroom')">
+                <div class="space-icon">🛋️</div>
+                <div class="space-plant-art">🌿</div>
+                <h3>Living Room</h3>
+                <p>Fresh greenery for your indoor space.</p>
+            </button>
+
+            <button class="space-card" onclick="chooseSpace('workdesk')">
+                <div class="space-icon">💻</div>
+                <div class="space-plant-art">🪴</div>
+                <h3>Work Desk</h3>
+                <p>Small plants for your study corner.</p>
+            </button>
+
+            <button class="space-card" onclick="chooseSpace('window')">
+                <div class="space-icon">🪟</div>
+                <div class="space-plant-art">🌱</div>
+                <h3>Window</h3>
+                <p>Plants that enjoy bright light.</p>
+            </button>
+
+            <button class="space-card" onclick="chooseSpace('kitchen')">
+                <div class="space-icon">🍳</div>
+                <div class="space-plant-art">🌿</div>
+                <h3>Kitchen</h3>
+                <p>Useful herbs and easy greenery.</p>
+            </button>
+
+            <button class="space-card" onclick="chooseSpace('garden')">
+                <div class="space-icon">🌳</div>
+                <div class="space-plant-art">🌺</div>
+                <h3>Garden</h3>
+                <p>Flowers and trees for open spaces.</p>
+            </button>
+
+            <button class="space-card" onclick="chooseSpace('terrace')">
+                <div class="space-icon">🏠</div>
+                <div class="space-plant-art">🌸</div>
+                <h3>Terrace</h3>
+                <p>Sun-loving rooftop plants.</p>
+            </button>
+
+        </div>
+
+        <div id="spaceRecommendations" class="space-recommendations"></div>
+
+    </section>
+
+
+    <!-- PLANT DOCTOR -->
+    <section class="plant-doctor-section" id="doctor">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                🩺 PLANT DOCTOR
+            </span>
+
+            <h2>
+                Something Wrong With Your Plant?
+            </h2>
+
+            <p>
+                Don't worry. Identify common plant problems
+                and learn what your plant may need.
+            </p>
+
+        </div>
+
+
+        <div class="plant-problems-grid">
+
+            <div class="problem-card">
+                <div class="problem-icon">🍂</div>
+                <h3>Yellow Leaves</h3>
+                <p>
+                    Too much water, poor drainage or insufficient
+                    light can make leaves yellow.
+                </p>
+                <span>💡 Check soil before watering</span>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">🥀</div>
+                <h3>Drooping Plant</h3>
+                <p>
+                    Drooping leaves can happen because of
+                    watering stress, heat or root problems.
+                </p>
+                <span>💡 Check moisture & sunlight</span>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">🐛</div>
+                <h3>Tiny Pests</h3>
+                <p>
+                    Small insects, sticky leaves or tiny spots
+                    may indicate pests.
+                </p>
+                <span>💡 Check under the leaves</span>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">☀️</div>
+                <h3>Brown Leaves</h3>
+                <p>
+                    Harsh sunlight, dry air or irregular watering
+                    can cause brown edges.
+                </p>
+                <span>💡 Keep watering consistent</span>
+            </div>
+
+        </div>
+
+
+        <div class="doctor-tip">
+
+            <div class="doctor-tip-icon">
+                🩺
+            </div>
+
+            <div>
+                <strong>Plant Doctor Tip</strong>
+
+                <p>
+                    Before treating any problem, check three things:
+                    light, soil moisture and drainage.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARE -->
+    <section class="care-section" id="care">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                🌱 EASY PLANT CARE
+            </span>
+
+            <h2>
+                Simple Care for Healthier Plants
+            </h2>
+
+            <p>
+                A little care every day can help your plants
+                stay fresh, strong and beautiful.
+            </p>
+
+        </div>
+
+
+        <div class="care-timeline">
+
+            <div class="care-step">
+                <div class="care-number">01</div>
+                <div class="care-icon">☀️</div>
+                <h3>Give Them Light</h3>
+                <p>
+                    Give every plant the right amount of sunlight.
+                    Not every plant needs direct sun.
+                </p>
+            </div>
+
+            <div class="care-step">
+                <div class="care-number">02</div>
+                <div class="care-icon">💧</div>
+                <h3>Water Wisely</h3>
+                <p>
+                    Touch the soil before watering.
+                    Overwatering can harm roots.
+                </p>
+            </div>
+
+            <div class="care-step">
+                <div class="care-number">03</div>
+                <div class="care-icon">🌱</div>
+                <h3>Healthy Soil</h3>
+                <p>
+                    Use loose, nutrient-rich and well-draining
+                    soil for healthier roots.
+                </p>
+            </div>
+
+            <div class="care-step">
+                <div class="care-number">04</div>
+                <div class="care-icon">✂️</div>
+                <h3>Trim & Clean</h3>
+                <p>
+                    Remove dry leaves and flowers to encourage
+                    fresh and healthy growth.
+                </p>
+            </div>
+
+            <div class="care-step">
+                <div class="care-number">05</div>
+                <div class="care-icon">🔍</div>
+                <h3>Check Regularly</h3>
+                <p>
+                    Take one minute to inspect leaves, soil
+                    and stems for early problems.
+                </p>
+            </div>
+
+            <div class="care-step">
+                <div class="care-number">06</div>
+                <div class="care-icon">💚</div>
+                <h3>Be Consistent</h3>
+                <p>
+                    Plants don't need perfection.
+                    Small regular care helps them thrive.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NURSERY -->
+    <section class="nursery-section">
+
+        <div class="nursery-content">
+
+            <span class="section-tag">
+                🌿 READY TO GROW?
+            </span>
+
+            <h2>
+                Find a Nursery Near You
+            </h2>
+
+            <p>
+                Found your perfect plant?
+                Bring some green home today.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="findNursery()"
+            >
+                Find Nearby Nursery 📍
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SLOGAN -->
+    <section class="slogan-section">
+
+        <div class="slogan-decoration">🌿</div>
+
+        <h2>
+            More plants, more life, better tomorrow.
+        </h2>
+
+        <p>
+            Start with one plant. Grow a greener world.
+        </p>
+
+        <div class="slogan-decoration">🌱</div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="logo">
+            🌱 Smart Nursery
+        </div>
+
+        <p>
+            Helping you choose, understand and care for plants.
+        </p>
+
+        <p class="copyright">
+            © 2026 Smart Nursery Information Portal
+        </p>
+
+    </footer>
+
+
+    <!-- MODAL -->
+    <div class="modal" id="plantModal">
+
+        <div class="modal-box">
+
+            <button
+                class="modal-close"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+            <div id="modalContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
